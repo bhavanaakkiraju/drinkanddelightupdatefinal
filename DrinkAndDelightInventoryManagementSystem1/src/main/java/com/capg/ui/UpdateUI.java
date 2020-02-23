@@ -12,7 +12,7 @@ import java.util.Scanner;
 import com.capg.service.UpdateServiceImpl;
 
 public class UpdateUI {
-	public static void main(String[] args) throws UpdateOrderException {
+	public static void main(String[] args) throws UpdateOrderException, ParseException {
 		// TODO Auto-generated method stub
 		SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
 		HashMap<Integer,String> p=new HashMap<Integer,String>();
@@ -20,15 +20,13 @@ public class UpdateUI {
 		System.out.println("Enter the id");
 		
 		String id=sc.nextLine();
-		try {
-		Date date1 = new Date();
+		//Date date1 = new Date();
+	
+		//Date date1 = new Date();
+			Date date1 = new Date();
 	      Date date2 = sdf.parse("2020-02-23");
 		UpdateServiceImpl t=new UpdateServiceImpl();
 		t.Service(date1,date2,id);
-	}
-		catch(Exception e) {
-			throw new UpdateOrderException("Date not Inserted");
-		}
-		}
-
+		
+}
 }
