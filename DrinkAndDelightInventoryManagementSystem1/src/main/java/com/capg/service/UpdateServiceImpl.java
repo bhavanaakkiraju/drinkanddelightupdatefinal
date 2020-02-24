@@ -10,8 +10,8 @@ import com.capg.ui.UpdateOrderException;
 
 
 public class UpdateServiceImpl {
-public void Service(Date date1,Date date2,String id) throws UpdateOrderException {
-	UpdateDAO oo=new UpdateDAO();
-	oo.Update(date1,date2,id);
+public String Service(Date date1,Date date2,String id) throws UpdateOrderException {
+	UpdateDAO updateDAO=new UpdateDAO();
+	return updateDAO.Update(date1,date2,id);
 }
 }

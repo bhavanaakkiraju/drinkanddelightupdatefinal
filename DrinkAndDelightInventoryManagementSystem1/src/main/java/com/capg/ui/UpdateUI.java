@@ -15,18 +15,19 @@ public class UpdateUI {
 	public static void main(String[] args) throws UpdateOrderException, ParseException {
 		// TODO Auto-generated method stub
 		SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
-		HashMap<Integer,String> p=new HashMap<Integer,String>();
-		Scanner sc=new Scanner(System.in);
+		HashMap<Integer,String> hashMap=new HashMap<Integer,String>();
+		Scanner scanner=new Scanner(System.in);
 		System.out.println("Enter the id");
 		
-		String id=sc.nextLine();
+		String id=scanner.nextLine();
 		//Date date1 = new Date();
 	
 		//Date date1 = new Date();
 			Date date1 = new Date();
-	      Date date2 = sdf.parse("2020-02-23");
-		UpdateServiceImpl t=new UpdateServiceImpl();
-		t.Service(date1,date2,id);
+	      Date date2 = sdf.parse("2020-02-28");
+		UpdateServiceImpl serviceImpl=new UpdateServiceImpl();
+		serviceImpl.Service(date1,date2,id);
+		System.out.println(serviceImpl.Service(date1,date2,id));
 		
 }
 }

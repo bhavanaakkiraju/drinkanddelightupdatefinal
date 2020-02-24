@@ -11,41 +11,43 @@ import com.capg.dto.UpdateDto;
 import com.capg.ui.UpdateOrderException;
 
 public class UpdateDAO {
-	public void Update(Date date1,Date date2,String id) throws UpdateOrderException {
+	public String Update(Date date1,Date date2,String id) throws UpdateOrderException {
 		/*if(date1.equals(date2))
 		{
 			System.out.println("Order will be placed by the end of the day");
 		}*/
-		UpdateDto u=new UpdateDto();
-		Map<String,UpdateDto> raws =new HashMap<String, UpdateDto>();//7
+		UpdateDto updateDto=new UpdateDto();
+		String str="order is not placed";
+		Map<String,UpdateDto> map =new HashMap<String, UpdateDto>();//7
 
-		UpdateDto order=new UpdateDto("53553");
-		UpdateDto order1=new UpdateDto("56243");
-		UpdateDto order11=new UpdateDto("56245");
+		UpdateDto updateDto2=new UpdateDto("53553");
+		UpdateDto updateDto3=new UpdateDto("56243");
+		UpdateDto updateDto4=new UpdateDto("56245");
 		
 
-		raws.put(order.getOrderId(), order);
-		raws.put(order1.getOrderId(), order1);
-		raws.put(order11.getOrderId(), order11);
+		map.put(updateDto2.getOrderId(), updateDto2);
+		map.put(updateDto3.getOrderId(), updateDto3);
+		map.put(updateDto4.getOrderId(),updateDto4);
 		
 		/*
 		 * if(raws.containsKey(id)) { u.setDateOfDelivery(date1); //
 		 * System.out.println(u.getDateOfDelivery()); } else { throw new
 		 * UpdateOrderException("id not found"); }
 		 */
-		if(raws.containsKey(id))
+		if(map.containsKey(id))
 		{
 		if(date1.compareTo(date2) > 0) {
-	        System.out.println("Order is delivered");
+	        str="Order is delivered";
 	     } else if(date1.compareTo(date2) < 0) {
-	        System.out.println("Order will be delivered soon");
+	        str= "Order will be delivered soon";
 	     } else if(date1.compareTo(date2) == 0) {
-	        System.out.println("Order will be delivered by the end of the day");
+	        str="Order will be delivered by the end of the day";
 	     }
 		}
 		else {
 			throw new UpdateOrderException("ID not found");
 		}
+		return str;
 	}
 }
 
